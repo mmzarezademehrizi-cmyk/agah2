@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>آگاه — وقت و پولت رو آگاهانه کنترل کن</title>
+<meta name="description" content="آگاه یک اپ اندرویدی مینیمال است که اپ‌های وقت‌گیر را بعد از سقف روزانه قفل می‌کند، خرج‌هایت را بدون قضاوت ثبت و تحلیل می‌کند و یک دستیار هوشمند فارسی دارد.">
+<meta name="theme-color" content="#07090d">
+<meta property="og:title" content="آگاه — وقت و پولت رو آگاهانه کنترل کن">
+<meta property="og:description" content="قفل زمان‌دار اپ‌ها، ثبت سریع خرج و دستیار هوشمند فارسی. همه‌چیز روی گوشی خودت.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/img/icon-512.png">
+<link rel="icon" type="image/png" href="/img/icon-64.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preload" href="/fonts/Vazirmatn-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div id="bar"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="rgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7CF2D4"/><stop offset="1" stop-color="#8B7CFF"/></linearGradient>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7CF2D4"/><stop offset="1" stop-color="#8B7CFF"/></linearGradient>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="pill">
+    <a class="logo" href="#top" aria-label="آگاه">
+      <img src="/img/icon-64.png" width="30" height="30" alt="" style="border-radius:9px">
+      آگاه
+    </a>
+    <nav class="links" aria-label="منو">
+      <a href="#features">ویژگی‌ها</a>
+      <a href="#calc">محاسبه‌گر</a>
+      <a href="#assistant">دستیار هوشمند</a>
+      <a href="#principles">اصول</a>
+      <a href="#faq">سؤال‌ها</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a class="btn primary sm dl" href="#"><svg class="ic"><use href="#i-download"/></svg>دانلود</a>
+      <button class="burger" id="burger" type="button" aria-label="منو" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <nav class="menu" id="menu" aria-label="منوی موبایل">
+    <a href="#features">ویژگی‌ها</a><a href="#calc">محاسبه‌گر</a><a href="#assistant">دستیار هوشمند</a><a href="#principles">اصول</a><a href="#faq">سؤال‌ها</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eyebrow"><i></i>اپ اندروید • فارسی • مینیمال</span>
+        <h1>وقتت و پولت رو <span class="grad">آگاهانه</span> کنترل کن</h1>
+        <p class="lead">آگاه اپ‌های وقت‌گیر رو بعد از سقف روزانه تا نیمه‌شب قفل می‌کنه، خرج‌هات رو در کمتر از ۱۰ ثانیه و بدون قضاوت ثبت می‌کنه، و یه دستیار هوشمند فارسی کنارته.</p>
+        <div class="cta-row">
+          <a class="btn primary dl" href="#"><svg class="ic"><use href="#i-download"/></svg>دانلود برای اندروید</a>
+          <a class="btn" href="#assistant"><svg class="ic"><use href="#i-spark"/></svg>با دستیار گپ بزن</a>
+        </div>
+        <div class="trust">
+          <span><svg class="ic"><use href="#i-check"/></svg>رایگان و بدون تبلیغ</span>
+          <span><svg class="ic"><use href="#i-check"/></svg>داده‌ها روی گوشی خودت</span>
+          <span><svg class="ic"><use href="#i-check"/></svg>کاملاً فارسی</span>
+          <span id="ver" hidden><svg class="ic"><use href="#i-download"/></svg><i style="font-style:normal"></i></span>
+        </div>
+      </div>
+
+      <div class="duo rv" id="duo">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="stage" id="stage">
+          <figure class="ph ph-a"><img src="/img/time.jpg" width="560" height="1159" alt="صفحه‌ی زمان در اپ آگاه: استریک، نمودار هفتگی و سقف یوتیوب" fetchpriority="high"></figure>
+          <figure class="ph ph-b"><img src="/img/expense.jpg" width="560" height="1159" alt="صفحه‌ی خرج‌ها در اپ آگاه" loading="eager"></figure>
+          <div class="chip c1"><svg class="ic"><use href="#i-lock"/></svg>سقف امروز تموم شد</div>
+          <div class="chip c2"><svg class="ic"><use href="#i-bolt"/></svg>ثبت خرج در ۱۰ ثانیه</div>
+          <div class="chip c3"><svg class="ic"><use href="#i-spark"/></svg>نظر امروز دستیار</div>
+        </div>
+      </div>
+    </div>
+    <div class="marq" aria-hidden="true">
+      <div class="track">
+        <span>قفل زمان‌دار اپ‌ها</span><span>ثبت سریع خرج</span><span>ترازوی پشیمانی</span><span>استریک و نشان‌ها</span><span>پول به ساعت کار</span><span>دستیار هوشمند فارسی</span><span>بدون تبلیغ</span><span>داده‌ها روی گوشی</span>
+        <span>قفل زمان‌دار اپ‌ها</span><span>ثبت سریع خرج</span><span>ترازوی پشیمانی</span><span>استریک و نشان‌ها</span><span>پول به ساعت کار</span><span>دستیار هوشمند فارسی</span><span>بدون تبلیغ</span><span>داده‌ها روی گوشی</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="features">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">ویژگی‌ها</span><h2>کم‌حرف، دقیق و کاربردی</h2><p>هر چیزی که لازمه تا کنترل برگرده دست خودت؛ نه بیشتر.</p></div>
+      <div class="bento">
+        <article class="t s4 rv">
+          <span class="ti"><svg class="ic"><use href="#i-lock"/></svg></span>
+          <h3>قفل زمان‌دار اپ‌ها</h3>
+          <p>برای هر اپ یه سقف روزانه بذار. وقتی تموم شد، اپ تا نیمه‌شب بسته می‌شه و صفحه‌ی قفل یه جایگزین بهتر پیشنهاد می‌ده. فقط ۵ دقیقه‌ی اضطراری، روزی دو بار.</p>
+          <div class="viz">
+            <svg class="rg" viewBox="0 0 100 100" aria-hidden="true"><circle class="a" cx="50" cy="50" r="42"/><circle class="b" cx="50" cy="50" r="42"/></svg>
+            <div class="apps" aria-hidden="true">
+              <div class="ar lk"><i style="background:#ff3b3b">▶</i>YouTube<em>قفل شد ۵/۵</em></div>
+              <div class="ar"><i style="background:#c13584">◎</i>Instagram<em>۲۴ از ۳۰ دقیقه</em></div>
+              <div class="ar"><i style="background:#2aabee">✈</i>Telegram<em>۱۰ از ۴۵ دقیقه</em></div>
+            </div>
+          </div>
+        </article>
+        <article class="t s2 rv">
+          <span class="ti"><svg class="ic"><use href="#i-bolt"/></svg></span>
+          <h3>ثبت خرج در ۱۰ ثانیه</h3>
+          <p>صدا بالا و پایین، تکان دادن، کاشی تنظیمات سریع، ویجت یا پیامک بانکی.</p>
+          <div class="kp" aria-hidden="true"><b>۷۰٬۰۰۰</b><span>تومان</span><div class="kpc"><u class="on">سرگرمی</u><u class="on">با دوست</u><u>هوسی</u></div></div>
+        </article>
+        <article class="t s2 rv">
+          <span class="ti"><svg class="ic"><use href="#i-scale"/></svg></span>
+          <h3>ترازوی پشیمانی</h3>
+          <p>۲۴ ساعت بعد می‌پرسه: هنوز راضی هستی؟ الگوی خریدهای پشیمان‌کننده‌ات رو می‌بینی.</p>
+          <div class="faces" aria-hidden="true"><span>😊<small>راضیم</small></span><span>😐<small>معمولی</small></span><span>😞<small>پشیمونم</small></span></div>
+        </article>
+        <article class="t s2 rv">
+          <span class="ti"><svg class="ic"><use href="#i-flame"/></svg></span>
+          <h3>استریک و گزارش هفتگی</h3>
+          <p>پیشرفتت دیده می‌شه. اگه یه روز نشد، سرزنشت نمی‌کنه؛ دوباره شروع می‌کنی.</p>
+          <div class="mini" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="t s2 rv">
+          <span class="ti"><svg class="ic"><use href="#i-clock"/></svg></span>
+          <h3>پول به زبان ساعت کار</h3>
+          <p>«این خرید = ۳ ساعت کار من». تصمیم‌ها از عدد به زندگی تبدیل می‌شن و واقعی‌تر می‌شن.</p>
+        </article>
+        <article class="t s4 rv">
+          <span class="ti"><svg class="ic"><use href="#i-spark"/></svg></span>
+          <h3>دستیار هوشمند فارسی</h3>
+          <p>داخل اپ روی گوشی و بدون اینترنت کار می‌کنه و خرجت رو از روی جمله ثبت می‌کنه. اینجا هم همون مغز اختصاصی آگاه روی وب منتظرته. هر روز هم نظر خودش رو می‌گه.</p>
+          <div class="bub" aria-hidden="true"><div class="u">۵۰ هزار تومن غذا خرج کردم</div><div class="a">ثبت شد ✅ ۵۰٬۰۰۰ تومان • غذا و بیرون. لازم بود؟</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="calc" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">محاسبه‌گر</span><h2>چقدر از سالت می‌ره توی اسکرول؟</h2><p>عدد رو ببین، بعد تصمیم بگیر. این حساب فقط ریاضیه، نه قضاوت.</p></div>
+      <div class="calc glass rv">
+        <div class="l">
+          <div class="ctl"><label for="hrs"><span>روزی چند ساعت روی شبکه‌های اجتماعی هستی؟</span><b id="hv">۳ ساعت</b></label><input id="hrs" type="range" min="0.5" max="8" step="0.5" value="3"></div>
+          <div class="ctl"><label for="tgt"><span>سقف دلخواهت با آگاه</span><b id="tv">۶۰ دقیقه</b></label><input id="tgt" type="range" min="15" max="180" step="5" value="60"></div>
+          <p class="fine">فرمول: ساعت روزانه × ۳۶۵ ÷ ۲۴ = تعداد روزهای کامل (۲۴ ساعته) در سال.</p>
+        </div>
+        <div class="r">
+          <div class="rs"><span>الان سالی</span><b id="r1">۴۵<small>روز</small></b></div>
+          <div class="rs"><span>با سقف آگاه</span><b id="r2">۱۵<small>روز</small></b></div>
+          <div class="rs hl"><span>زمانی که پس می‌گیری</span><b class="grad" id="r3">۳۰<small>روز در سال</small></b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">شروع</span><h2>سه قدم تا کنترل</h2></div>
+      <div class="steps">
+        <div class="step rv"><h3>نصب و دو مجوز</h3><p>فایل APK رو نصب کن و دو مجوز «آمار استفاده» و «نمایش روی سایر اپ‌ها» رو بده.</p></div>
+        <div class="step rv"><h3>سقف بذار</h3><p>اپ‌های وقت‌گیرت رو انتخاب کن و برای هر کدوم یه سقف روزانه‌ی شدنی تعیین کن.</p></div>
+        <div class="step rv"><h3>آگاه باش</h3><p>خرج‌هات رو ثبت کن، نظر روزانه رو بخون و از دستیار بپرس چطور بهتر بشی.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="assistant" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">هوش مصنوعی آگاه</span><h2>مربی‌ای که مخصوص عادت‌های تو ساخته شده</h2><p>مغز آگاه یه دستیار اختصاصیه که کاملاً داخل مرورگر خودت اجرا می‌شه. بپرس، یا بذار ازت بپرسه تا برنامه‌ی شخصی بسازه.</p></div>
+
+      <div class="chat-wrap glass rv">
+        <aside class="side">
+          <details class="panel" open>
+            <summary><svg class="ic"><use href="#i-target"/></svg>اطلاعات من (اختیاری)</summary>
+            <div class="fld"><label for="p-goal">سقف دلخواه وقت روی اپ‌های وقت‌گیر (دقیقه در روز)</label><input id="p-goal" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۶۰"></div>
+            <div class="fld"><label for="p-app">اپی که وقتت رو می‌گیره</label><input id="p-app" type="text" maxlength="40" placeholder="مثلاً اینستاگرام"></div>
+            <div class="fld"><label for="p-budget">بودجه‌ی ماهانه (تومان)</label><input id="p-budget" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۲۰۰۰۰۰۰۰"></div>
+            <div class="fld"><label for="p-goalname">هدف پس‌انداز</label><input id="p-goalname" type="text" maxlength="40" placeholder="مثلاً لپ‌تاپ"></div>
+            <div class="fld"><label for="p-focus">تمرکزم روی</label><select id="p-focus"><option value="both">هر دو</option><option value="time">وقت و اپ‌ها</option><option value="money">خرج و پول</option></select></div>
+            <p class="disc" style="padding:0">این اطلاعات فقط در مرورگر خودت ذخیره می‌شه و برای شخصی‌سازی پاسخ همراه پیامت فرستاده می‌شه.</p>
+          </details>
+          <details class="panel">
+            <summary><svg class="ic"><use href="#i-calendar"/></svg>چک‌این امروز</summary>
+            <form id="checkin">
+              <div class="fld"><label for="c-screen">امروز چند دقیقه روی اپ‌های وقت‌گیر بودی؟</label><input id="c-screen" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۱۲۰"></div>
+              <div class="fld"><label for="c-spend">امروز چقدر خرج کردی؟ (تومان)</label><input id="c-spend" type="number" inputmode="numeric" min="0" placeholder="مثلاً ۳۵۰۰۰۰"></div>
+              <div class="moods" id="moods" role="group" aria-label="حال امروز">
+                <button type="button" data-m="آروم">آروم</button><button type="button" data-m="استرس‌دار">استرس‌دار</button><button type="button" data-m="کسل">کسل</button><button type="button" data-m="خوشحال">خوشحال</button><button type="button" data-m="خسته">خسته</button>
+              </div>
+              <button class="btn primary sm" type="submit" style="width:100%">نظر دستیار رو بگیر</button>
+            </form>
+          </details>
+        </aside>
+
+        <div class="chat">
+          <div class="chat-head">
+            <div class="who"><div class="av" aria-hidden="true"><svg class="ic"><use href="#i-spark"/></svg></div><div><b>دستیار آگاه</b><span class="st"><i class="dot" id="dot"></i><span id="dotText">در حال اتصال…</span></span></div></div>
+            <button class="ghost" id="clear" type="button">پاک کردن گفتگو</button>
+          </div>
+          <div class="msgs" id="msgs" aria-live="polite"></div>
+          <div class="chips" id="chips">
+            <button type="button">چطور وقتی که تو اینستاگرام تلف می‌کنم رو کم کنم؟</button>
+            <button type="button">یه برنامه‌ی ۷ روزه برای کم کردن اسکرول بده</button>
+            <button type="button">چطور خرج‌های هوسی رو کنترل کنم؟</button>
+            <button type="button">بعد از یه روز بد چطور دوباره شروع کنم؟</button>
+            <button type="button">بودجه‌ی ماهانه رو چطور ببندم؟</button>
+          </div>
+          <form class="composer" id="composer">
+            <textarea id="msg" rows="1" maxlength="1200" placeholder="بپرس یا وضعیتت رو بنویس…" aria-label="پیام"></textarea>
+            <button class="send" id="send" type="submit" aria-label="ارسال"><svg class="ic"><use href="#i-send"/></svg></button>
+          </form>
+          <p class="disc">این دستیار جایگزین پزشک، روان‌درمانگر یا مشاور مالی نیست. همه‌چیز داخل مرورگر خودت اجرا و ذخیره می‌شه؛ هیچ پیامی به سرور یا سرویس دیگه‌ای فرستاده نمی‌شه.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="principles">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">پشت صحنه</span><h2>طراحی‌شده با روان‌شناسی، نه با ترس</h2><p>اپ‌هایی که فقط سرزنش می‌کنن زود حذف می‌شن. آگاه روی چیزایی بنا شده که واقعاً به تغییر عادت کمک می‌کنن.</p></div>
+      <div class="two">
+        <div class="pp rv"><h3><svg class="ic"><use href="#i-brain"/></svg>اصول طراحی</h3><ul>
+          <li><span><b>خودمختاری:</b> همه‌چیز دست توئه؛ حتی اینکه دستیار به چه بخشی دسترسی داشته باشه.</span></li>
+          <li><span><b>خودمهربانی:</b> بعد از یه روز بد، پیام همدلانه می‌بینی، نه سرزنش.</span></li>
+          <li><span><b>قصد اجرایی:</b> پیشنهادهای «اگه… آن‌گاه» که احتمال عمل کردن رو بالا می‌برن.</span></li>
+          <li><span><b>اصطکاک هوشمند:</b> مکث قبل از عادت بد؛ ۵ دقیقه‌ی اضطراری فقط روزی دو بار.</span></li>
+          <li><span><b>پیشرفت دیده‌شده:</b> استریک و گزارش هفتگی برای انگیزه‌ی ادامه.</span></li>
+        </ul></div>
+        <div class="pp rv"><h3><svg class="ic"><use href="#i-shield"/></svg>حریم خصوصی</h3><ul>
+          <li><span><b>اپ:</b> خرج‌ها، محدودیت‌ها و گفتگوها فقط روی گوشی خودت می‌مونن و اپ هیچ داده‌ای ارسال نمی‌کنه.</span></li>
+          <li><span><b>دستیار داخل اپ:</b> بدون اینترنت و روی خود گوشی کار می‌کنه.</span></li>
+          <li><span><b>دستیار وب:</b> موتور اختصاصی آگاه داخل مرورگر خودت اجرا می‌شه؛ هیچ پیامی به سرور یا هوش مصنوعی دیگه‌ای فرستاده نمی‌شه و اطلاعاتی که می‌گی فقط روی همین دستگاه می‌مونه.</span></li>
+          <li><span><b>مجوزها:</b> برای قفل کردن اپ‌ها فقط آمار استفاده و نمایش روی صفحه لازمه.</span></li>
+          <li><span>اطلاعات حساس مثل شماره‌ی کارت یا رمز رو هیچ‌وقت توی چت ننویس.</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">سؤال‌های رایج</span><h2>هر چی می‌خواستی بدونی</h2></div>
+      <div class="faq rv">
+        <details><summary>آگاه برای آیفون هم هست؟</summary><p>فعلاً فقط اندروید. محدودیت‌های iOS اجازه‌ی قفل کردن اپ‌های دیگه رو با این روش نمی‌ده.</p></details>
+        <details><summary>چطور نصبش کنم؟</summary><p>فایل APK رو دانلود کن، اجازه‌ی «نصب از منبع ناشناس» رو برای مرورگر یا فایل‌منیجر بده، نصب کن و دو مجوز اپ رو فعال کن.</p></details>
+        <details><summary>چرا اپ‌ها گاهی بعد از سقف باز می‌شن؟</summary><p>بعضی گوشی‌ها (مثل شیائومی) اپ‌ها رو در پس‌زمینه می‌بندن. در تنظیمات اپ، محدودیت باتری رو بردار، «شروع خودکار» و «پاپ‌آپ در پس‌زمینه» رو فعال کن و سرویس دسترسی‌پذیری آگاه رو روشن کن.</p></details>
+        <details><summary>دستیار اپ با دستیار این سایت فرق داره؟</summary><p>بله. دستیار داخل اپ روی گوشی و بدون اینترنت کار می‌کنه و به داده‌های واقعی‌ت دسترسی داره. دستیار سایت از همون مغز استفاده می‌کنه ولی داده‌های گوشیت رو نمی‌بینه؛ هر عددی بخوای تحلیل کنه خودت می‌نویسی. در عوض همه‌جا در دسترسه.</p></details>
+        <details><summary>آیا اپ رایگانه؟</summary><p>بله، نسخه‌ی فعلی رایگان و بدون تبلیغه.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final rv">
+      <img src="/img/icon-192.png" width="84" height="84" alt="آیکن آگاه" style="border-radius:22px;margin-bottom:18px;box-shadow:0 20px 50px -15px rgba(0,0,0,.7)">
+      <h2>امروز با یه قدم کوچیک شروع کن</h2>
+      <p>یه سقف ساده بذار، یه خرج ثبت کن، و ببین آگاهی چقدر چیزها رو عوض می‌کنه.</p>
+      <a class="btn primary dl" href="#"><svg class="ic"><use href="#i-download"/></svg>دانلود آگاه</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> آگاه — برای کنترل بهتر وقت و پول</span>
+    <nav><a href="#features">ویژگی‌ها</a><a href="#assistant">دستیار</a><a href="#faq">سؤال‌ها</a><a id="gh" href="#" hidden>گیت‌هاب</a></nav>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/assets/config.js"></script>
+<script src="/assets/main.js" defer></script>
+<script src="/assets/brain.js" defer></script>
+<script src="/assets/chat.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>پنل ادمین — آگاه</title>
+<link rel="icon" type="image/png" href="/img/icon-64.png">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/admin.css">
+</head>
+<body class="adm">
+<div id="bar"></div>
+<main class="wrap ad-wrap">
+  <header class="ad-top">
+    <a class="logo" href="/"><img src="/img/icon-64.png" width="34" height="34" alt="">آگاه • ادمین</a>
+    <button class="ghost" id="logout" type="button" hidden>خروج</button>
+  </header>
+
+  <section class="glass ad-card" id="login" hidden>
+    <h1>ورود</h1>
+    <p class="muted">رمز ادمین رو وارد کن. (متغیر محرمانه‌ی <code>ADMIN_PASSWORD</code> در کلودفلر)</p>
+    <form id="loginForm">
+      <div class="fld"><label for="pw">رمز عبور</label><input id="pw" type="password" autocomplete="current-password" required></div>
+      <button class="btn primary" type="submit">ورود</button>
+      <p class="msg" id="loginMsg" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="panel" hidden>
+    <div class="glass ad-card" id="current">
+      <h2>نسخه‌ی منتشرشده</h2>
+      <div id="curBody" class="muted">در حال بارگذاری…</div>
+    </div>
+
+    <div class="glass ad-card">
+      <h2>بارگذاری نسخه‌ی جدید</h2>
+      <form id="upForm">
+        <div class="fld"><label for="file">فایل APK</label><input id="file" type="file" accept=".apk,application/vnd.android.package-archive" required></div>
+        <div class="row2">
+          <div class="fld"><label for="ver">شماره‌ی نسخه</label><input id="ver" type="text" inputmode="decimal" dir="ltr" placeholder="1.0.0" maxlength="20" required></div>
+          <div class="fld"><label for="pub">پس از آپلود</label><select id="pub"><option value="1">منتشر شود (دانلود از سایت)</option><option value="0">فقط ذخیره شود</option></select></div>
+        </div>
+        <div class="fld"><label for="notes">توضیح تغییرات (اختیاری)</label><input id="notes" type="text" maxlength="250" placeholder="مثلاً: قفل بهتر، تم جدید"></div>
+        <div class="prog" id="prog" hidden><div class="pbar"><i id="pfill"></i></div><span id="ptext"></span></div>
+        <button class="btn primary" id="upBtn" type="submit">آپلود</button>
+        <p class="msg" id="upMsg" role="status"></p>
+      </form>
+    </div>
+
+    <div class="glass ad-card">
+      <h2>همه‌ی نسخه‌ها</h2>
+      <div id="list" class="rel-list"><p class="muted">—</p></div>
+    </div>
+  </section>
+
+  <section class="glass ad-card" id="setup" hidden>
+    <h2>تنظیم نشده</h2>
+    <p class="muted" id="setupText"></p>
+  </section>
+</main>
+<script src="/assets/admin.js" defer></script>
+</body>
+</html>

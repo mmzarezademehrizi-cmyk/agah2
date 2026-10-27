@@ -1,0 +1,14 @@
+{
+  "name": "agah2",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-20",
+  "assets": {
+  "directory": "./public",
+  "binding": "ASSETS",
+  "not_found_handling": "404-page",
+  "run_worker_first": ["/api/*", "/download/*"]
+},
+  "ai": { "binding": "AI" },
+  "kv_namespaces": [{ "binding": "REL", "id": "ab0efa93b814404a91bec86793849e16" }],
+  "observability": { "enabled": true }
+}
